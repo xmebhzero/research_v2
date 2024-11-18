@@ -1,0 +1,73 @@
+=== eka vs speechmatics ===
+(FILE 1)
+number of sentences: 1
+substitutions=146 deletions=110 insertions=6 hits=1093
+
+mer=19.34%
+wil=28.87%
+wip=71.13%
+wer=19.42%
+
+wer=0.19421793921423278
+
+
+(FILE 2)
+number of sentences: 1
+substitutions=117 deletions=67 insertions=21 hits=1041
+
+mer=16.45%
+wil=24.97%
+wip=75.03%
+wer=16.73%
+
+wer=0.1673469387755102
+
+(FILE 3)
+number of sentences: 1
+substitutions=133 deletions=74 insertions=37 hits=1025
+
+mer=19.23%
+wil=28.64%
+wip=71.36%
+wer=19.81%
+
+wer=0.19805194805194806
+
+
+
+
+
+
+=== eka vs deepgram ===
+(FILE 1)
+number of sentences: 1
+substitutions=160 deletions=329 insertions=24 hits=743
+
+mer=40.84%
+wil=51.66%
+wip=48.34%
+wer=41.64%
+
+wer=0.4163961038961039
+
+(FILE 2)
+number of sentences: 1
+substitutions=129 deletions=178 insertions=25 hits=918
+
+mer=26.56%
+wil=35.83%
+wip=64.17%
+wer=27.10%
+
+wer=0.2710204081632653
+
+(FILE 3)
+number of sentences: 1
+substitutions=209 deletions=112 insertions=19 hits=1028
+
+mer=24.85%
+wil=37.63%
+wip=62.37%
+wer=25.20%
+
+wer=0.2520385470719051

@@ -1,0 +1,8 @@
+sa-googlecloud.json
+.env
+.venv/
+poetry.lock
+
+__pycache__/
+*.py[cod]
+*$py.class

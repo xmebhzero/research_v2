@@ -1,0 +1,19 @@
+1. Kata yang di transcript sesuai dengan apa yang didengar saja
+  Contoh:
+    - "cuman"
+2. Kata yang di transcript tidak dirubah menjadi kata baku:
+  Contoh:
+    - "temen temen" tidak dirubah jadi teman teman
+    - "inget" tidak dirubah jadi ingat
+    - "cuma" / "cuman" tidak dirubah menjadi "hanya"
+3. Kata yang di transcript menggunakan ejaan yang dirasa sesuai:
+  Contoh:
+    - ngga -> nggak
+    - si -> sih
+4. Kata serapan ditulis dalam bahasa indonesia
+  Contoh:
+    - okay -> oke (case ini special, dirubah sesuai dengan yang diucapkan. Jika pembicara melafalkan dalam bahasa inggirs, akan ditulis inggris, jika dilafalkan dengan bahasa indonesia, akan ditulis menjadi bahasa indonesia)
+    - external -> eksternal
+5. Filler seperti "eh" / "umm" akan diabaikan
+6. Humming seperti "hu um" / "he em" yang berartikan iya juga akan diabaikan
+7. 
