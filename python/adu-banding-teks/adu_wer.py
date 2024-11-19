@@ -19,12 +19,10 @@ for loop in range(3):
     print(f"### Manual vs Deepgram")
     jiwer_out_deepgram = jiwer.process_words(normalized_manual_text, normalized_deepgram_text)
     print(jiwer.visualize_alignment(jiwer_out_deepgram))
-    print(f"WER: {jiwer.wer(normalized_manual_text, normalized_deepgram_text)}")
+    print(f"WER: {jiwer.wer(normalized_manual_text, normalized_deepgram_text)}\n")
     
     print(f"### Manual vs Speechmatics")
     jiwer_out_speechmatics = jiwer.process_words(normalized_manual_text, normalized_speechmatics_text)
     print(jiwer.visualize_alignment(jiwer_out_speechmatics))
-    print(f"WER: {jiwer.wer(normalized_manual_text, normalized_speechmatics_text)}")
-    print(f"\n")
-
+    print(f"WER: {jiwer.wer(normalized_manual_text, normalized_speechmatics_text)}\n\n")
     

@@ -17,6 +17,8 @@ google-cloud-storage = "^2.18.2"
 jiwer = "^3.0.5"
 speechmatics-python = "^3.0.0"
 whisper-normalizer = "^0.0.10"
+pyannote-metrics = "^3.2.1"
+pyannote-core = "^5.0.0"
 
 
 [build-system]

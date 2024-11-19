@@ -1,0 +1,30 @@
+*****************************************************************
+File: gs://dev-resauto-transcriber/sample_data/sample-audio-1.wav
+*****************************************************************
+### Manual vs Deepgram
+DER: 0.3313008130081301
+
+### Manual vs Speechmatics
+DER: 0.3861788617886179
+
+
+*****************************************************************
+File: gs://dev-resauto-transcriber/sample_data/sample-audio-2.wav
+*****************************************************************
+### Manual vs Deepgram
+DER: 0.8377659574468085
+
+### Manual vs Speechmatics
+DER: 0.8085106382978723
+
+
+*****************************************************************
+File: gs://dev-resauto-transcriber/sample_data/sample-audio-3.wav
+*****************************************************************
+### Manual vs Deepgram
+DER: 0.33815551537070526
+
+### Manual vs Speechmatics
+DER: 0.39421338155515373
+
+

@@ -55,6 +55,12 @@ DEEPGAM_DIARIZATIONS = [
     "./deepgram/deepgram-3-diarization.txt",
 ]
 
+DEEPGRAM_RAW = [
+    "./deepgram/deepgram-1-raw.json",
+    "./deepgram/deepgram-2-raw.json",
+    "./deepgram/deepgram-3-raw.json",
+]
+
 MANUAL_NORMALIZE = [
     "./manual/manual-1-normal.txt",
     "./manual/manual-2-normal.txt",
