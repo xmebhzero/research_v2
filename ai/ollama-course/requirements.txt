@@ -1,0 +1,16 @@
+ollama==0.4.8
+chromadb==1.0.8
+pdfplumber==0.11.6
+langchain==0.3.25
+langchain-core==0.3.59
+langchain-ollama==0.3.2
+langchain-text-splitters==0.3.8
+langchain-community==0.3.23
+unstructured==0.17.2
+unstructured-client==0.34.0
+unstructured[all-docs]
+fastembed==0.6.1
+pikepdf==9.7.0
+sentence-transformers==4.1.0
+elevenlabs==1.58.1
+requests==2.32.3

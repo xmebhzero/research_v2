@@ -1,0 +1,32 @@
+[project]
+name = "research-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12.3"
+dependencies = [
+    "chromadb>=1.0.13",
+    "langchain>=0.3.26",
+    "langchain-community>=0.3.26",
+    "langchain-core>=0.3.66",
+    "langchain-ollama>=0.3.3",
+    "langchain-text-splitters>=0.3.8",
+    "ollama>=0.5.1",
+    "pdfplumber>=0.11.7",
+    "unstructured[all-docs]>=0.18.1",
+    "unstructured-client>=0.37.2",
+    "fastembed>=0.7.1",
+    "pikepdf>=9.9.0",
+    "sentence-transformers>=4.1.0",
+    "elevenlabs>=2.5.0",
+    "requests>=2.32.4",
+    "openai>=1.93.0",
+    "langchain-openai>=0.3.27",
+    "langgraph>=0.5.0",
+    "beautifulsoup4>=4.13.4",
+    "duckduckgo-search>=8.0.4",
+    "tavily-python>=0.7.8",
+    "langgraph-checkpoint>=2.1.0",
+    "langgraph-checkpoint-sqlite>=2.0.10",
+    "aiosqlite>=0.21.0",
+]
