@@ -17,6 +17,10 @@ pypdf2 = "^3.0.1"
 pdfplumber = "^0.11.6"
 pymupdf = "^1.25.5"
 pypdf = "^5.5.0"
+noisereduce = "^3.0.3"
+soundfile = "^0.13.1"
+deepgram-sdk = "^4.5.0"
+pydub = "^0.25.1"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.5"

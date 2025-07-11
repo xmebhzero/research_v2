@@ -12,6 +12,7 @@ from deepgram import (
     PrerecordedOptions,
 )
 from whisper_normalizer.basic import BasicTextNormalizer
+import re
 
 load_dotenv()
 
@@ -73,6 +74,21 @@ MANUAL_DIARIZATIONS = [
     "./manual/manual-3-diarization.txt"
 ]
 
+MANUAL_PATRONUS = [
+    "./manual-patronus/idi-5-diarization.txt",
+    "./manual-patronus/idi-2-diarization.txt",
+]
+
+ELEVENLABS_PATRONUS = [
+    "./elevenlabs/idi-5-diarization.txt",
+    "./elevenlabs/idi-2-diarization.txt",
+]
+
+DEEPGRAM_PATRONUS = [
+    "./deepgram/idi-5-diarization.txt",
+    "./deepgram/idi-2-diarization.txt",
+]
+
 normalizer = BasicTextNormalizer()
 
 def extract_text(transcripts: List):
@@ -104,3 +120,19 @@ def read_file(file_location: str):
 def write_text_to_file(text: str, file_path: str):
     with open(file_path, 'w') as file:
         file.write(text)
+
+
+
+def read_file_clean_transcript(filepath):
+    """
+    Reads a text file and removes timestamp and speaker labels from each line.
+    Example line: [00:02:03] Person 2: Sekarang saya bekerja di bidang travel consultant, tourism, industri seperti itu.
+    Returns only the transcript text.
+    """
+    cleaned_lines = []
+    with open(filepath, 'r', encoding='utf-8') as f:
+        for line in f:
+            # Remove [timestamp] Person X: at the start of the line
+            cleaned = re.sub(r'^\[\d{2}:\d{2}:\d{2}\]\s+Person\s+\d+:\s+', '', line)
+            cleaned_lines.append(cleaned)
+    return ''.join(cleaned_lines)
