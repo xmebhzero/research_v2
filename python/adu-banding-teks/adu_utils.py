@@ -75,18 +75,22 @@ MANUAL_DIARIZATIONS = [
 ]
 
 MANUAL_PATRONUS = [
-    "./manual-patronus/idi-5-diarization.txt",
-    "./manual-patronus/idi-2-diarization.txt",
+    "./manual-patronus/idi-5.txt",
+    "./manual-patronus/idi-2.txt",
 ]
 
 ELEVENLABS_PATRONUS = [
-    "./elevenlabs/idi-5-diarization.txt",
-    "./elevenlabs/idi-2-diarization.txt",
+    # "./elevenlabs/idi-5-diarization.txt",
+    # "./elevenlabs/idi-2-diarization.txt",
+    "patronus-no-punctuation/elevenlabs-idi-5.txt",
+    "patronus-no-punctuation/elevenlabs-idi-2.txt",
 ]
 
 DEEPGRAM_PATRONUS = [
-    "./deepgram/idi-5-diarization.txt",
-    "./deepgram/idi-2-diarization.txt",
+    # "./deepgram/idi-5-diarization.txt",
+    # "./deepgram/idi-2-diarization.txt",
+    "patronus-no-punctuation/deepgram-idi-5.txt",
+    "patronus-no-punctuation/deepgram-idi-2.txt",
 ]
 
 normalizer = BasicTextNormalizer()

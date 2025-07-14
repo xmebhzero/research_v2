@@ -8,7 +8,7 @@
     - "cuma" / "cuman" tidak dirubah menjadi "hanya"
 3. Kata yang di transcript menggunakan ejaan yang dirasa sesuai:
   Contoh:
-    - ngga -> nggak
+    - ngga -> enggak
     - si -> sih
 4. Kata serapan ditulis dalam bahasa indonesia
   Contoh:
