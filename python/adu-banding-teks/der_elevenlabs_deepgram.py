@@ -47,9 +47,9 @@ def parse_diarization_file(file_path: str):
 # Initialize DER
 metric = DiarizationErrorRate()
 
-for loop in range(2):
+for loop in range(3):
     print(f"*****************************************************************")
-    print(f"File: {loop+1}")
+    print(f"File: {MANUAL_PATRONUS[loop]}")
     print(f"*****************************************************************")
 
     manual_annotation = parse_diarization_file(MANUAL_PATRONUS[loop])

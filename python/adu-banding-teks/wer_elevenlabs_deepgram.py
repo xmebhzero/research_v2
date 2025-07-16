@@ -11,6 +11,11 @@ word_mapping = {
     "15": "lima belas",
     "10": "sepuluh",
     "500": "lima ratus",
+    "100%": "seratus persen",
+    "33": "tiga puluh tiga",
+    "9 to 5": "nine to five",
+    "1": "one",
+    "5": "lima",
     "nggak": "enggak",
     "ga": "enggak",
     "ya": "iya",
@@ -37,7 +42,7 @@ transformation = jiwer.Compose([
     jiwer.ReduceToListOfListOfWords(word_delimiter=" "),
 ])
 
-for loop in range(2):
+for loop in range(3):
     print(f"*****************************************************************")
     print(f"File: {MANUAL_PATRONUS[loop]}")
     print(f"*****************************************************************")
