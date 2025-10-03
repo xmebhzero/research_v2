@@ -29,4 +29,8 @@ dependencies = [
     "langgraph-checkpoint>=2.1.0",
     "langgraph-checkpoint-sqlite>=2.0.10",
     "aiosqlite>=0.21.0",
+    "mcp>=1.16.0",
+    "arxiv>=2.2.0",
+    "anthropic>=0.69.0",
+    "nest-asyncio>=1.6.0",
 ]

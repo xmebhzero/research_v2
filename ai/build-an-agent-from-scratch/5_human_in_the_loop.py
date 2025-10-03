@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from langgraph.graph import StateGraph, END
-from typing import TypedDict, Annotated
+from typing import Any, TypedDict, Annotated
 import operator
 from langchain_core.messages import AnyMessage, SystemMessage, HumanMessage, ToolMessage
 from langchain_openai import ChatOpenAI
@@ -49,7 +49,7 @@ class AgentState(TypedDict):
 
 
 class Agent:
-    def __init__(self, model, tools, system="", checkpointer=None):
+    def __init__(self, model: ChatOpenAI, tools: list[TavilySearchResults], system: str = "", checkpointer: Any = None):
         self.system = system
         graph = StateGraph(AgentState)
         graph.add_node("llm", self.call_openai)
