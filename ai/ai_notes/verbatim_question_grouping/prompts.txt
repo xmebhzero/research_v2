@@ -1,0 +1,9 @@
+#codebase 
+ResAuto will add a new feature to the Verbatim module, allowing users to group multiple questions so they share a common codebook/codelist. This feature does not change the basic Verbatim process; the selected questions will be created in a codebook/codelist in the same way as currently, and assigned in the same manner. In terms of UI/UX, this feature has several caveats:
+
+1. Users will be able to select multiple questions to group. These groups will be named according to the selected question code.
+2. Questions that have been selected for a group cannot be added to another group.
+3. Questions that already have a codebook or answers assigned cannot be selected for a group.
+4. If an error is found in the selection, the user is required to delete the entire group, including the codebook and the relationships between the answers and the codebooks recorded in the database.
+
+Your task is to perform an in-depth analysis of the Verbatim module, and design tables and columns that fit this new feature.

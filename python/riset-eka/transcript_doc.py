@@ -8,18 +8,18 @@ def create_styled_document(data):
 
     Args:
         data (dict): A dictionary containing the data to be inserted into the document.
-                      Expected structure:
-                      {
-                          'project_name': str,
-                          'transcriber': str,
-                          'idi': str,
-                          'city': str,
-                          'execution_date': str,
-                          'execution_time': str,
-                          'moderator': str,
-                          'respondent_name': str,
-                          'dialogue': list of dicts  # See create_dialogue_section for details
-                      }
+                    Expected structure:
+                    {
+                        'project_name': str,
+                        'transcriber': str,
+                        'idi': str,
+                        'city': str,
+                        'execution_date': str,
+                        'execution_time': str,
+                        'moderator': str,
+                        'respondent_name': str,
+                        'dialogue': list of dicts  # See create_dialogue_section for details
+                    }
 
     Returns:
         docx.document.Document: A Document object, ready to be saved.  Returns None on error.
@@ -44,9 +44,9 @@ def create_styled_document(data):
 def _set_document_margins(document, top, bottom, left, right):
     """Sets the document's margins.
 
-       Args:
-           document (docx.document.Document): The document object.
-           top, bottom, left, right (float): Margin values in inches.
+    Args:
+        document (docx.document.Document): The document object.
+            top, bottom, left, right (float): Margin values in inches.
     """
     sections = document.sections
     for section in sections:

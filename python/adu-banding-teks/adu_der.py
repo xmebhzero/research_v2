@@ -14,41 +14,77 @@ from deepgram import (
 )
 from math import inf,floor
 from statistics import mean
+from pyannote.core import Timeline
 
 def time_str_to_seconds(time_str: str) -> float:
     minutes, seconds = map(int, time_str.split(':'))
     return float(minutes * 60 + seconds)
 
+# def parse_diarization_file(file_path: str):
+#     content = Path(file_path).read_text()
+#     pattern = re.compile(r"Speaker (\d+):\n\[(.*?)\]\n(.*?)(?=\nSpeaker \d+:|\Z)", re.DOTALL)
+#     matches = pattern.findall(content)
+
+#     anno = Annotation()
+    
+#     result = []
+#     for match in matches:
+#         speaker, time_str, text = match
+
+#         # start_time_str, end_time_str = time_str.split(', ')
+
+#         time_parts = time_str.split(', ')
+#         start_time_str = time_parts[0]
+#         end_time_str = time_parts[1]
+        
+#         start_time_seconds = time_str_to_seconds(start_time_str)
+#         end_time_seconds = time_str_to_seconds(end_time_str)
+
+#         anno[Segment(start_time_seconds, end_time_seconds)] = f"Speaker {speaker}"
+
+#         result.append({
+#             "speaker": int(speaker),
+#             "time_str": time_str,
+#             "text": text.strip().replace("\n", " "),
+#             "start_time_seconds": start_time_seconds,
+#             "end_time_seconds": end_time_seconds,
+#         })
+    
+#     return anno
+
 def parse_diarization_file(file_path: str):
     content = Path(file_path).read_text()
-    pattern = re.compile(r"Speaker (\d+):\n\[(.*?)\]\n(.*?)(?=\nSpeaker \d+:|\Z)", re.DOTALL)
-    matches = pattern.findall(content)
-
+    lines = content.strip().split('\n')
+    
+    pattern = re.compile(r"\[(\d{2}:\d{2}:\d{2})\] (Person \d+): (.*)")
+    
     anno = Annotation()
     
-    result = []
-    for match in matches:
-        speaker, time_str, text = match
-
-        # start_time_str, end_time_str = time_str.split(', ')
-
-        time_parts = time_str.split(', ')
-        start_time_str = time_parts[0]
-        end_time_str = time_parts[1]
-        
-        start_time_seconds = time_str_to_seconds(start_time_str)
-        end_time_seconds = time_str_to_seconds(end_time_str)
-
-        anno[Segment(start_time_seconds, end_time_seconds)] = f"Speaker {speaker}"
-
-        result.append({
-            "speaker": int(speaker),
-            "time_str": time_str,
-            "text": text.strip().replace("\n", " "),
-            "start_time_seconds": start_time_seconds,
-            "end_time_seconds": end_time_seconds,
-        })
+    last_speaker = None
+    segment_start = 0.0
     
+    for i, line in enumerate(lines):
+        match = pattern.match(line)
+        if not match:
+            continue
+            
+        time_str, speaker, text = match.groups()
+        
+        h, m, s = map(int, time_str.split(':'))
+        current_time = float(h * 3600 + m * 60 + s)
+
+        if last_speaker is not None and speaker != last_speaker:
+            anno[Segment(segment_start, current_time)] = last_speaker
+            segment_start = current_time
+        
+        if last_speaker is None:
+            segment_start = current_time
+
+        last_speaker = speaker
+
+        if i == len(lines) - 1 and last_speaker is not None:
+            anno[Segment(segment_start, current_time)] = last_speaker
+
     return anno
 
 def process_utterances(utts: List[Utterance]):
@@ -123,10 +159,17 @@ metric = DiarizationErrorRate()
 # der = metric(reference, hypothesis)
 # print(f"DER: {der:.2f}")
 
-for loop in range(3):
-    manual_annotation = parse_diarization_file(MANUAL_DIARIZATIONS[loop])
-    deepgram_annotation = read_deepgram_diarization(DEEPGRAM_RAW[loop])
-    speechmatics_annotation = parse_diarization_file(SPEECHMATICS_DIARIZATIONS[loop])
+for loop in range(1):
+    # manual_annotation = parse_diarization_file(MANUAL_DIARIZATIONS[loop])
+    # deepgram_annotation = read_deepgram_diarization(DEEPGRAM_RAW[loop])
+    # speechmatics_annotation = parse_diarization_file(SPEECHMATICS_DIARIZATIONS[loop])
+
+    manual_annotation = parse_diarization_file("./idi4/manual.txt")
+    deepgram_annotation = parse_diarization_file("./idi4/original.txt")
+    # speechmatics_annotation = parse_diarization_file(SPEECHMATICS_DIARIZATIONS[loop])
+
+    # Compute union of segments for UEM
+    uem = Timeline(manual_annotation.get_timeline() | deepgram_annotation.get_timeline())
 
     print(f"*****************************************************************")
     print(f"File: {GCS_FILES[loop]}")
@@ -136,6 +179,6 @@ for loop in range(3):
     der_speechmatics = metric(manual_annotation, deepgram_annotation)
     print(f"DER: {der_speechmatics}\n")
 
-    print(f"### Manual vs Speechmatics")
-    der_speechmatics = metric(manual_annotation, speechmatics_annotation)
-    print(f"DER: {der_speechmatics}\n\n")
+    # print(f"### Manual vs Speechmatics")
+    # der_speechmatics = metric(manual_annotation, speechmatics_annotation)
+    # print(f"DER: {der_speechmatics}\n\n")

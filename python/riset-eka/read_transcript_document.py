@@ -27,7 +27,7 @@ def extract_conversation(file_path):
                     text = page.extract_text()
                     if text:
                         for line in text.splitlines():
-                           if re.match(r'^[MR]\t', line):
+                            if re.match(r'^[MR]\t', line):
                                 conversation_text += line + "\n"
 
         elif file_path.lower().endswith(".txt"):
